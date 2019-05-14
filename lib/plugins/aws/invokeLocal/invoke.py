@@ -69,7 +69,7 @@ if __name__ == '__main__':
     # this is needed because you need to import from where you've executed sls
     sys.path.append('.')
 
-    module = import_module(args.handler_path.replace('/', '.'))
+    module = import_module(args.handler_path.replace('/', '.'), package=__package__)
     handler = getattr(module, args.handler_name)
 
     input = json.load(sys.stdin)
